@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bea.server.mapper.DemoMapper">
+
+    <select id="find" resultType="com.bea.server.entity.Demo">
+        select *
+        from demo
+        <trim prefix="where" prefixOverrides="AND">
+            <if test="age != null">
+                age = #{age}
+            </if>
+            <if test="name != null">
+                AND name = #{name}
+            </if>
+            AND deleted = 0
+        </trim>
+    </select>
+
+    <select id="selectPageVo" parameterType="java.util.HashMap" resultType="com.bea.server.entity.Demo">
+        select *
+        from demo
+        <trim prefix="where" prefixOverrides="AND">
+            <if test="em.age != null">
+                age = #{em.age}
+            </if>
+            <if test="em.name != null">
+                AND name = #{em.name}
+            </if>
+            AND deleted = 0
+        </trim>
+    </select>
+
+    <select id="queryMyOrders" resultType="java.util.Map">
+        select a.id,a.name,a.name,a.email,a.deleted, b.orderno,b.content from demo a
+        LEFT JOIN demodetail b on a.id = b.rid
+        <trim prefix="where" prefixOverrides="AND">
+            <if test="em.age != null">
+                age = #{em.age}
+            </if>
+            <if test="em.name != null">
+                AND name = #{em.name}
+            </if>
+            AND deleted = 0
+        </trim>
+    </select>
+
+    <select id="selectMyPageByObj" resultType="Demo">
+        select * from demo
+        <trim prefix="where" prefixOverrides="AND">
+            <if test="et.age != null">
+                age = #{et.age}
+            </if>
+            <if test="et.name != null">
+                AND name = #{et.name}
+            </if>
+            AND deleted = 0
+        </trim>
+    </select>
+
+    <select id="selectMyPageByEW" resultType="Demo">
+        select * from demo
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+</mapper>
