@@ -1,0 +1,196 @@
+{
+	"variables": [],
+	"info": {
+		"name": "demoServer",
+		"_postman_id": "d647725f-5c54-dc40-534f-253d8abdb655",
+		"description": "demeServer ajax 交互测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/demoJson",
+			"request": {
+				"url": "http://localhost:8080/demoJsonObj",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"iDisplayStart\":1,\r\n    \"iDisplayLength\":5,\r\n    \"age\": \"20\",\r\n    \"name\":\"Jack\"\r\n}"
+				},
+				"description": "json 转化为JSONObject对象"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/demoObj",
+			"request": {
+				"url": "http://localhost:8080/demoObj",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "yanjun",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "33",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "yanjun@qq.com",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "json 转化为JSONObject对象"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/demoJsonMap",
+			"request": {
+				"url": "http://localhost:8080/demoJsonMap",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"yanjun\",\n\t\"age\":33\n}"
+				},
+				"description": "json 转化为JSONObject对象"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/demoJsonListObj",
+			"request": {
+				"url": "http://localhost:8080/demoJsonListObj",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\":1,\r\n    \"nmae\":\"yanjun\",\r\n    \"age\":30\r\n  },\r\n  {\r\n    \"id\":2,\r\n    \"nmae\":\"yanjun\",\r\n    \"age\":30\r\n  }\r\n]"
+				},
+				"description": "json 转化为List<Demo>对象"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/demoJsonNestObj",
+			"request": {
+				"url": "http://localhost:8080/demoJsonNestObj",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"id\":1,\r\n    \"nmae\":\"yanjun\",\r\n    \"age\":30,\r\n    \"demodetails\":[\r\n      {\"id\":1,\"rid\":1,\"orderno\":3},\r\n      {\"id\":2,\"rid\":1,\"orderno\":4}\r\n    ]\r\n  },\r\n  {\r\n    \"id\":2,\r\n    \"nmae\":\"yanjun\",\r\n    \"age\":30,\r\n    \"demodetails\":[\r\n      {\"id\":3,\"rid\":2,\"orderno\":5},\r\n      {\"id\":4,\"rid\":2,\"orderno\":6}\r\n    ]\r\n  }\r\n]"
+				},
+				"description": "json 转化为嵌套List<Demo>对象"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/xWwwFormUrlencoded",
+			"request": {
+				"url": "http://localhost:8080/xWwwFormUrlencoded",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "\"aaa\"",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "age",
+							"value": "33",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "ids",
+							"value": "1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "detail",
+							"value": "{\"id\":1,\"rid\":2}",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "detail.rid",
+							"value": "2",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "ids",
+							"value": "2",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "ids",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "@RequestParam"
+			},
+			"response": []
+		}
+	]
+}
